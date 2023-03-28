@@ -14,7 +14,7 @@ public class NelderMeadMethod
     private readonly double _gamma;
     private readonly double _sigma;
 
-    Point Reflect(Point centroid, Point best) => (1 + _alpha) * centroid - _alpha * best;
+    Point Reflect(Point centroid, Point worst) => (1 + _alpha) * centroid - _alpha * worst;
     Point Expand(Point centroid, Point reflected) => (1 - _beta) * centroid + _beta * reflected;
     Point Contract(Point centroid, Point toContract) => (1 - _gamma) * centroid + _gamma * toContract;
     
@@ -39,7 +39,7 @@ public class NelderMeadMethod
             Point centroid = simplex.Centroid();
             
             // Step 3. Reflection.
-            Point reflected = Reflect(centroid, best);
+            Point reflected = Reflect(centroid, worst);
             reportString += ReportString("Reflected", reflected);
             if (function.Calc(best) <= function.Calc(reflected) && function.Calc(reflected) < function.Calc(good))
             {
