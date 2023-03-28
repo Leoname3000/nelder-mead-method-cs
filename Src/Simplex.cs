@@ -79,7 +79,7 @@ public class Simplex
         return result;
     }
 
-    public Point Centroid() => (double) 1 / 2 * (_points[1] + _points[2]);
+    public Point Centroid() => (double) 1 / 2 * (_points[0] + _points[1]);
     public Point Best => _points[0];
     public Point Good => _points[1];
     public Point Worst
