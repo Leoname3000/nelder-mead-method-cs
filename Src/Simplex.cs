@@ -23,8 +23,8 @@ public class Simplex
         Random random = new Random();
         for (int i = 0; i < 3; i++)
         {
-            double randomX = random.NextDouble() * range;
-            double randomY = random.NextDouble() * range;
+            double randomX = random.NextDouble() * range - range / 2;
+            double randomY = random.NextDouble() * range - range / 2;
             pts.Add(new Point(randomX, randomY));
         }
         return pts;
