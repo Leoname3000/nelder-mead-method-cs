@@ -18,9 +18,9 @@ public class NelderMeadMethod
     Point Expand(Point centroid, Point reflected) => (1 - _beta) * centroid + _beta * reflected;
     Point Contract(Point centroid, Point toContract) => (1 - _gamma) * centroid + _gamma * toContract;
     
-    public Point Run(IFunction function, int iterations)
+    public Point Run(IFunction function, int iterations, double simplexRange = 1)
     {
-        Simplex simplex = new Simplex();
+        Simplex simplex = new Simplex(simplexRange);
         String ReportString(String name, Point point) => 
             $"{name}: f{point} = {Math.Round(function.Calc(point), 2, MidpointRounding.AwayFromZero):#0.00} | ";
 

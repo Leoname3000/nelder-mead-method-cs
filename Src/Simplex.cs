@@ -2,9 +2,9 @@ namespace Src;
 
 public class Simplex
 {
-    public Simplex()
+    public Simplex(double range)
     {
-        _points = Generate();
+        _points = Generate(range);
     }
     private List<Point> _points;
 
@@ -17,14 +17,14 @@ public class Simplex
         return result;
     }
 
-    List<Point> Generate()
+    List<Point> Generate(double range)
     {
         List<Point> pts = new List<Point>();
         Random random = new Random();
         for (int i = 0; i < 3; i++)
         {
-            double randomX = random.NextDouble();
-            double randomY = random.NextDouble();
+            double randomX = random.NextDouble() * range;
+            double randomY = random.NextDouble() * range;
             pts.Add(new Point(randomX, randomY));
         }
         return pts;
